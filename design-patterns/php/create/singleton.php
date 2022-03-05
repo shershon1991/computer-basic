@@ -6,8 +6,8 @@ class Singleton
     private static $_instance;
 
     /**
-     * 不允许从外部调用以防止创建多个实例
-     * 要使用单例，必须通过 Singleton::getInstance() 方法获取实例
+     * 防止从外部直接实例化
+     * 要获取实例，必须通过 Singleton::getInstance() 方法获取实例
      */
     private function __construct()
     {
@@ -29,7 +29,7 @@ class Singleton
 
     public static function getInstance()
     {
-        if (! (self::$_instance instanceof self)) {
+        if (!(self::$_instance instanceof self)) {
             self::$_instance = new self();
         }
 
