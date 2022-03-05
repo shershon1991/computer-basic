@@ -61,17 +61,18 @@ class RecordProxy extends Record
 
 $data = [];
 $proxy = new RecordProxy($data);
-$proxy->xyz = false;
-print_r($proxy);
+$proxy->name = "张三";
+var_dump($proxy);
 /*输出
-RecordProxy Object
-(
-    [isDirty:RecordProxy:private] => 1
-    [isInitialized:RecordProxy:private] =>
-    [data:Record:private] => Array
-        (
-            [xyz] =>
-        )
-
-)
+object(RecordProxy)#1 (3) {
+  ["isDirty":"RecordProxy":private]=>
+  bool(true)
+  ["isInitialized":"RecordProxy":private]=>
+  bool(false)
+  ["data":"Record":private]=>
+  array(1) {
+    ["name"]=>
+    string(6) "张三"
+  }
+}
  */

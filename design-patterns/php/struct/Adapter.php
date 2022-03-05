@@ -52,6 +52,7 @@ class Kindle implements EBookInterface
 
     public function unlock()
     {
+        $this->page = 1;
     }
 
     public function pressNext()

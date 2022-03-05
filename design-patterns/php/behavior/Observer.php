@@ -67,12 +67,9 @@ class FriendTwoObserver implements Observer
 }
 
 $subject = new ConcreteSubject();
-
 $subject->attach('friendOne', new FriendOneObserver());
 $subject->attach('friendTwo', new FriendTwoObserver());
-
 $subject->notifyObservers("第一个朋友圈消息");
-
 $subject->detach('friendTwo');
 $subject->notifyObservers("第二个朋友圈消息");
 /*输出
