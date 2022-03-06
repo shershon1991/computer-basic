@@ -7,7 +7,7 @@
  *
  **************************************************************************/
 
-require_once './Rsa.php';
+require_once './rsa.php';
 
 $rsa = new Rsa();
 $data = ['name' => 'xiaoshan', 'age' => 30];
