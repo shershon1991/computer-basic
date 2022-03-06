@@ -33,8 +33,8 @@ function binarySearchRecursion(array $arr, int $needle, int $low, int $high)
 }
 
 $arr = [1, 2, 3, 13, 25, 65];
-$rst = binarySearch($arr, 13); // 非递归版本
-$rst2 = binarySearchRecursion($arr, 65, 0, 5); // 递归版本
+$rst = binarySearch($arr, 13); // 二分查找-非递归版本
+$rst2 = binarySearchRecursion($arr, 65, 0, 5); // 二分查找-递归版本
 var_dump($rst, $rst2);
 /*输出
 bool(true)

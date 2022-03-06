@@ -1,33 +1,39 @@
 <?php
 
-class TreeNode {
+class TreeNode
+{
     public $data = null;
     public $children = [];
 
-    public function __construct(string $data = '') {
+    public function __construct(string $data = '')
+    {
         $this->data = $data;
     }
 
-    public function addChildren(TreeNode $treeNode) {
+    public function addChildren(TreeNode $treeNode)
+    {
         $this->children[] = $treeNode;
     }
 }
 
-class Tree {
+class Tree
+{
     public $root = null;
     public $visited = null;
 
-    public function __construct(TreeNode $treeNode) {
+    public function __construct(TreeNode $treeNode)
+    {
         $this->root = $treeNode;
         $this->visited = new splQueue();
     }
 
     // 递归方法
-    public function DFS(TreeNode $node): splQueue {
+    public function DFS(TreeNode $node): splQueue
+    {
         $this->visited->enqueue($node);
 
-        if($node->children) {
-            foreach($node->children as $child) {
+        if ($node->children) {
+            foreach ($node->children as $child) {
                 $this->DFS($child);
             }
         }
@@ -36,17 +42,18 @@ class Tree {
     }
 
     // 迭代方法
-    public function DFSIterator(TreeNode $node): splQueue {
+    public function DFSIterator(TreeNode $node): splQueue
+    {
         $stack = new splStack();
         $visited = new splQueue();
 
         $stack->push($node);
 
-        while(! $stack->isEmpty()) {
+        while (!$stack->isEmpty()) {
             $current = $stack->pop();
             $visited->enqueue($current);
 
-            foreach($current->children as $child) {
+            foreach ($current->children as $child) {
                 $stack->push($child);
             }
         }
@@ -55,7 +62,8 @@ class Tree {
     }
 }
 
-/*$root = new TreeNode('8');
+// 深度优先搜索
+$root = new TreeNode('8');
 $node4 = new TreeNode('4');
 $node7 = new TreeNode('7');
 $node6 = new TreeNode('6');
@@ -75,4 +83,4 @@ $root->addChildren($node10);
 
 $tree = new Tree($root);
 var_dump($tree->DFSIterator($root));
-var_dump($tree->DFS($root));*/
+var_dump($tree->DFS($root));
