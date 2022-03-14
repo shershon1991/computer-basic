@@ -1,34 +1,29 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <stdexcept>
+#include <unordered_map>
 
 using namespace std;
 
-// Leetcode-167
-// 最直接的思考：暴力解法，双层遍历，O(n^2)
+// Leetcode-1
+// 时间复杂度：O(n)
+// 空间复杂度：O(n)
 class Solution
 {
 public:
-          // 对撞指针
-          // 时间复杂度：O(n)
-          // 空间复杂度：O(1)
-          vector<int> twoSum(vector<int> &numbers, int target)
+          vector<int> twoSum(vector<int> &nums, int target)
           {
-                    assert(numbers.size() >= 2);
-
-                    int l = 0, r = numbers.size() - 1;
-                    while (l < r)
+                    unordered_map<int, int> record;
+                    for (int i = 0; i < nums.size(); i++)
                     {
-                              if (numbers[l] + numbers[r] == target)
+                              int complement = target - nums[i];
+                              if (record.find(complement) != record.end())
                               {
-                                        int res[2] = {l + 1, r + 1};
+                                        int res[2] = {i, record[complement]};
                                         return vector<int>(res, res + 2);
                               }
-                              else if (numbers[l] + numbers[r] < target)
-                                        l++;
-                              else
-                                        r--;
+
+                              record[nums[i]] = i;
                     }
 
                     throw invalid_argument("The input has no solution.");
@@ -40,7 +35,7 @@ int main()
           int arr[] = {2, 7, 11, 15};
           vector<int> vec(arr, arr + sizeof(arr) / sizeof(int));
 
-          vector<int> res = Solution().twoSum(vec, 22);
+          vector<int> res = Solution().twoSum(vec, 9);
 
           for (int i = 0; i < res.size(); i++)
                     cout << res[i] << " ";
