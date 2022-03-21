@@ -2,35 +2,27 @@
 
 // 插入排序算法-希尔排序
 /*
-希尔排序是基于插入排序的以下两点性质而提出改进方法的：
-1.插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率
-2.但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位
-
 思路：
-1.先取一个正整数 d1(d1 1 个组，所有距离为 d1 的倍数的记录看成一组，然后在各组内进行插入排序
-2.然后取 d2(d2 1)
-3.重复上述分组和排序操作；直到取 di = 1(i >= 1) 位置，即所有记录成为一个组，最后对这个组进行插入排序。
-一般选 d1 约为 n/2，d2 为 d1 /2， d3 为 d2/2 ，…， di = 1。
+希尔排序也是一种插入排序，它是简单插入排序经过改进之后的一个更高效的版本，也成为缩小增量排序。希尔排序是把记录按一定的增量分组，对每组使用直接插入算法，随着增量逐渐减少，每组包含的关键词越来越多，当增量减少至1时，整个文件恰被分成一组，算法便终止.
 */
-function ShellSort($arr)
+function shellSort(array $arr)
 {
-    $n = count($arr);
-    $sedgewick = [5, 3, 1];
-
-    // 初始的增量值不能超过待排序列的长度
-    for ($si = 0; $sedgewick[$si] >= $n; $si++);
-
-    // 开始分组循环，依次按照 5 、3 、 1 进行分组
-    for ($d = $sedgewick[$si]; $d > 0; $d = $sedgewick[++$si]) {
-        // 获取当前的分组数量
-        for ($p = $d; $p < $n; $p++) {
-            $tmp = $arr[$p];
-            // 插入排序开始，在当前组内
-            for ($i = $p; $i >= $d && $arr[$i - $d] > $tmp; $i -= $d) {
-                $arr[$i] = $arr[$i - $d];
+    $len = count($arr);
+    if ($len == 0) {
+        return $arr;
+    }
+    $gap = floor($len / 2);
+    while ($gap > 0) {
+        for ($i = 0; $i < $len; $i++) {
+            $current = $arr[$i];
+            $preIndex = $i - $gap;
+            while ($preIndex >= 0 && $arr[$preIndex] > $current) {
+                $arr[$preIndex + $gap] = $arr[$preIndex];
+                $preIndex -= $gap;
             }
-            $arr[$i] = $tmp;
+            $arr[$preIndex + $gap] = $current;
         }
+        $gap = floor($gap / 2);
     }
     return $arr;
 }

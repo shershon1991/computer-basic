@@ -2,34 +2,42 @@
 
 // 归并排序
 /*
-思路：
-1.把 n 个记录看成 n 个长度为 l 的有序子表
-2.进行两两归并使记录关键字有序，得到 n/2 个长度为 2 的有序子表
-3.重复第 2 步直到所有记录归并成一个长度为 n 的有序表为止。
+工作原理：
+归并排序是一种稳定的排序方法，将已有序的子序列合并，得到完整的有序的序列，即先使每个子序列有序，再使子序列段间有序。
+算法描述：
+a.把长度为n的输入序列分成两个长度为n/2的子序列；
+b.对这两个子序列分别归并排序；
+c.将两个排序好的子序列合并成一个最终的排序序列。
 */
-function mergeSort($arr, $left, $mid, $right)
+function mergeSort($data)
 {
-    $aIndex = $left == $mid ? -1 : $left;
-    $bIndex = $mid == $right ? -1 : $mid;
-    $crr = [];
+    $len = count($data);
+    if ($len < 2) {
+        return $data;
+    }
+    $mid = floor($len / 2);
+    $left = array_slice($data, 0, $mid);
+    $right = array_slice($data, $mid);
 
-    while (($aIndex >= $left && $aIndex < $mid) || ($bIndex >= $mid && $bIndex <= $right)) {
-        $aValue = $arr[$aIndex] ?? null;
-        $bValue = $arr[$bIndex] ?? null;
-        if (($aIndex < $left || $aIndex >= $mid) || ($bValue < $aValue && $bValue != null)) {
-            $crr[] = $bValue;
-            $bIndex++;
+    return merge(mergeSort($left), mergeSort($right));
+}
+
+function merge($left, $right)
+{
+    $result = array_merge($left, $right);
+    $len = count($result);
+    for ($index = 0, $i = 0, $j = 0; $index < $len; $index++) {
+        if ($i >= count($left)) {
+            $result[$index] = $right[$j++];
+        } elseif ($j >= count($right)) {
+            $result[$index] = $left[$i++];
+        } elseif ($left[$i] > $right[$j]) {
+            $result[$index] = $right[$j++];
         } else {
-            $crr[] = $aValue;
-            $aIndex++;
+            $result[$index] = $left[$i++];
         }
     }
-
-    for ($i = 0; $i < ($right - $left); $i++) {
-        $arr[$i + $left] = $crr[$i];
-    }
-
-    return $arr;
+    return $result;
 }
 
 // 归并排序
