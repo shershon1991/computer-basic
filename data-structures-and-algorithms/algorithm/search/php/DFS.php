@@ -48,7 +48,6 @@ class Tree
         $visited = new splQueue();
 
         $stack->push($node);
-
         while (!$stack->isEmpty()) {
             $current = $stack->pop();
             $visited->enqueue($current);
@@ -59,6 +58,18 @@ class Tree
         }
 
         return $visited;
+    }
+}
+
+function displayTree($obj)
+{
+    $count = count($obj);
+    foreach ($obj as $key => $node) {
+        if ($key == $count - 1) {
+            echo $node->data . PHP_EOL;
+        } else {
+            echo $node->data . "->";
+        }
     }
 }
 
@@ -82,5 +93,6 @@ $root->addChildren($node3);
 $root->addChildren($node10);
 
 $tree = new Tree($root);
-var_dump($tree->DFSIterator($root));
-var_dump($tree->DFS($root));
+displayTree($tree->DFS($root));
+displayTree($tree->DFSIterator($root));
+// 8->3->1->6->4->7->10->14->13
