@@ -6,12 +6,12 @@
 
 // Leetcode-1
 // 暴力解法
+// 时间复杂度:O(N^2) 空间复杂度:O(1)
 function twoSum1($nums, $target)
 {
     for ($i = 0, $m = count($nums); $i < $m - 1; $i++) {
-        $left = $target - $nums[$i];
         for ($j = $i + 1, $n = count($nums); $j < $n; $j++) {
-            if ($nums[$j] == $left) {
+            if ($nums[$i] + $nums[$j] == $target) {
                 return [$i, $j];
             }
         }
@@ -19,6 +19,7 @@ function twoSum1($nums, $target)
     return [];
 }
 
+// 时间复杂度: O(N) 空间复杂度: O(N)
 function twoSum2($nums, $target)
 {
     $record = [];
@@ -32,4 +33,3 @@ function twoSum2($nums, $target)
     }
     return [];
 }
-
