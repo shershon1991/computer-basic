@@ -25,6 +25,7 @@ function intToRoman($num)
     return $roman;
 }
 
+// leetcode-13
 // 罗马数字转整数
 // 时间复杂度：O(n) 空间复杂度：O(1)
 function romanToInt($s)
@@ -50,8 +51,8 @@ function romanToInt($s)
 
 $num = 3968;
 $rst = intToRoman($num);
-echo $rst . "\n";
+echo $rst . PHP_EOL;
 
 $s = "MMMCMLXVIII";
 $rst2 = romanToInt($s);
-echo $rst2;
+echo $rst2 . PHP_EOL;
