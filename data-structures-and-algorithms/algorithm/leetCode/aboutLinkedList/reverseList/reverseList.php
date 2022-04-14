@@ -34,3 +34,13 @@ class Solution
         return $pre;
     }
 }
+
+// 头插法创建一个链表
+$linkList = new ListNode();
+for ($i = 5; $i >= 1; $i--) {
+    $node = new ListNode($i, $linkList->next);
+    $linkList->next = $node;
+}
+print_r($linkList);
+// 反转后
+print_r((new Solution())->ReverseList($linkList));

@@ -6,7 +6,8 @@
  * Time: 9:42
  */
 
-// 整数反转
+// Leetcode-7
+// 时间复杂度: O(lgx) 空间复杂度: O(1)
 function reverse($num)
 {
     // 判断是否为负数(如果是负数，取绝对值调用本身，最后将结果转为负数)
@@ -19,7 +20,7 @@ function reverse($num)
         $num = floor($num / 10);
     }
     // 如果溢出就返回0
-    if ($res < 0x7fffffff) {
+    if ($res <= 0x7fffffff) {
         return $res;
     }
     return 0;

@@ -7,7 +7,7 @@
  */
 
 // 回文数
-// 法1：时间复杂度: O(N) 空间复杂度: O(N)
+// 方法1：时间复杂度: O(N) 空间复杂度: O(N)
 function isPalindrome($num)
 {
     if ($num < 0) {
@@ -21,7 +21,7 @@ function isPalindrome($num)
     return false;
 }
 
-// 法2：时间复杂度: O(N) 空间复杂度: O(1)
+// 方法2：时间复杂度: O(N) 空间复杂度: O(1)
 function isPalindrome2($num)
 {
     if ($num < 0 || ($num != 0 && $num % 10 == 0)) {
