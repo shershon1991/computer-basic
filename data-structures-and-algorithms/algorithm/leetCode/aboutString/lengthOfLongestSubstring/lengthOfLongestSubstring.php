@@ -6,6 +6,7 @@
 
 // Leetcode-3
 // 思想：滑动窗口
+// 时间复杂度: O(N) 空间复杂度: O(N)
 function lengthOfLongestSubstring($s)
 {
     $lens = strlen($s);//总的字符串有多长

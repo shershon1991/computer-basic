@@ -6,8 +6,8 @@
  * Time: 14:48
  */
 
+// leetcode-26
 // 删除排序数组中的重复项
-
 // 时间复杂度O(N^2)，空间复杂度O(1)
 function removeDuplicates($arr)
 {
@@ -34,24 +34,3 @@ function removeDuplicates2($arr)
     }
     return $idx;
 }
-
-/*$arr = [1,1,2,2,3,4];
-$rst = removeDuplicates2($arr);
-var_dump($rst);*/
-
-
-// 从排序链表中移除重复元素
-function deleteDuplicates($arr)
-{
-    foreach ($arr as $k => $v) {
-        if (isset($v) && $v == $arr[$k + 1]) {
-            unset($arr[$k + 1]);
-        }
-    }
-    return $arr;
-}
-
-$arr = [1, 1, 2, 2, 3, 4];
-$rst = deleteDuplicates($arr);
-var_dump($rst);
-
