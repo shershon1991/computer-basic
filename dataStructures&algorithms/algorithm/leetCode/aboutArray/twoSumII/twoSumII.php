@@ -5,6 +5,7 @@
  */
 
 // Leetcode-167
+// 时间复杂度：O(N) 空间复杂度：O(1)
 function twoSum($numbers, $target)
 {
     $left = 1;

@@ -7,6 +7,7 @@
 package main
 
 // Leetcode-167
+// 时间复杂度：O(N) 空间复杂度：O(1)
 func twoSum(numbers []int, target int) []int {
 	left := 1
 	right := len(numbers)
