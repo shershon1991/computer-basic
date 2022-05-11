@@ -18,6 +18,8 @@ class ListNode
 }
 
 // Leetcode-206
+// 反转链表
+// 时间复杂度：O(N) 空间复杂度：O(1)
 class Solution
 {
     function ReverseList($head)
