@@ -1,6 +1,7 @@
 <?php
 
 // 顺序查找
+// 时间复杂度：O(N)
 function orderSearch(array $arr, int $needle)
 {
     /*for ($i = 0, $count = count($arr); $i < $count; $i++) {

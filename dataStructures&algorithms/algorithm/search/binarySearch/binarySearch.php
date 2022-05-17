@@ -1,6 +1,7 @@
 <?php
 
 // 二分查找-非递归版本
+// 时间复杂度：O(logN)
 function binarySearch(array $arr, int $target)
 {
     $low = 0;
@@ -19,6 +20,7 @@ function binarySearch(array $arr, int $target)
 }
 
 // 二分查找-递归版本
+// 时间复杂度：O(logN)
 function binarySearchRecursion(array $arr, int $target, int $low, int $high)
 {
     if ($low > $high) return false;
