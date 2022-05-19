@@ -5,9 +5,9 @@ class Car;
 class ZhangSan
 {
 public:
-          void GoWork(Car *p)
-          {
-          }
+    void GoWork(Car *p)
+    {
+    }
 };
 
 class Car
@@ -17,13 +17,13 @@ class Car
 class AdvZhangSan
 {
 public:
-          void GoWork()
-          {
-                    // m_car...
-          }
+    void GoWork()
+    {
+        // m_car...
+    }
 
 private:
-          Car *m_car;
+    Car *m_car;
 };
 
 //类与类之间的关系：
@@ -35,7 +35,7 @@ private:
 // 组合		 (实心菱形箭头+实线): 生命体的整体和部分的关系，例如：人和五脏六腑
 int main101()
 {
-          cout << "hello..." << endl;
+    cout << "hello..." << endl;
 
-          return 0;
+    return 0;
 }
