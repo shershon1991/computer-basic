@@ -8,26 +8,30 @@ pthread_spinlock_t spin_lock;
 
 int num = 0;
 
-void *producer(void*){
+void *producer(void *)
+{
     int times = 10000000;
-    while(times --){
-	// pthread_spin_lock(&spin_lock);
+    while (times--)
+    {
+        // pthread_spin_lock(&spin_lock);
         num += 1;
-	// pthread_spin_unlock(&spin_lock);
+        // pthread_spin_unlock(&spin_lock);
     }
 }
 
-void *comsumer(void*){
+void *comsumer(void *)
+{
     int times = 10000000;
-    while(times --){
-	// pthread_spin_lock(&spin_lock);
+    while (times--)
+    {
+        // pthread_spin_lock(&spin_lock);
         num -= 1;
-	// pthread_spin_unlock(&spin_lock);
+        // pthread_spin_unlock(&spin_lock);
     }
 }
 
-
-int main(){
+int main()
+{
     printf("Start in main function.\n");
     pthread_spin_init(&spin_lock, 0);
     pthread_t thread1, thread2;
@@ -38,4 +42,3 @@ int main(){
     printf("Print in main function: num = %d\n", num);
     return 0;
 }
-
