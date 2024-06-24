@@ -1,6 +1,6 @@
 # -*- encoding=utf-8 -*-
 
-from computer_principle.DoubleLinkedList import DoubleLinkedList, Node
+from computerPrinciple.DoubleLinkedList import DoubleLinkedList, Node
 
 
 class FIFOCache(object):
@@ -54,4 +54,3 @@ if __name__ == '__main__':
     cache.put(4, 4)
     cache.print1()
     print(cache.get(1))
-

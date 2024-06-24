@@ -1,7 +1,7 @@
 # -*- encoding=utf-8 -*-
 
 
-from computer_principle.DoubleLinkedList import DoubleLinkedList, Node
+from computerPrinciple.DoubleLinkedList import DoubleLinkedList, Node
 
 
 class LRUCache(object):

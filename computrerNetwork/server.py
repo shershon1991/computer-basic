@@ -1,15 +1,14 @@
 # -*- encoding=utf-8 -*-
 
 
+from computerNetwork.processor.trans.parser import UDPParser, TCPParser
+from computerNetwork.processor.net.parser import IPParser
+from operateSystem.task import AsyncTask
+from operateSystem.pool import ThreadPool as tp
 import json
 import socket
 import sys
 sys.path.append("C:\\Users\\18810\\PycharmProjects")
-from operate_system.pool import ThreadPool as tp
-from operate_system.task import AsyncTask
-
-from computer_network.processor.net.parser import IPParser
-from computer_network.processor.trans.parser import UDPParser, TCPParser
 
 
 class ProcessTask(AsyncTask):
