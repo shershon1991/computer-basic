@@ -5,8 +5,8 @@ import psutil
 import threading
 import sys
 sys.path.append("C:\\Users\\18810\\PycharmProjects")
-from operate_system.task import Task, AsyncTask
-from operate_system.queue import ThreadSafeQueue
+from operateSystem.task import Task, AsyncTask
+from operateSystem.queue import ThreadSafeQueue
 
 
 # 任务处理线程
