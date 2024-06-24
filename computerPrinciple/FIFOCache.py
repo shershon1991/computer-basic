@@ -40,17 +40,25 @@ class FIFOCache(object):
         self.list.myprint()
 
 
+# 先进先出置换算法
 if __name__ == '__main__':
     cache = FIFOCache(2)
+
     cache.put(1, 1)
     cache.print1()
+
     cache.put(2, 2)
     cache.print1()
+
     print(cache.get(1))
+
     cache.put(3, 3)
     cache.print1()
+
     print(cache.get(2))
     cache.print1()
+
     cache.put(4, 4)
     cache.print1()
+
     print(cache.get(1))

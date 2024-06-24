@@ -74,25 +74,36 @@ class LFUCache(object):
         print('***************************')
 
 
+# 最不经常使用置换算法
 if __name__ == '__main__':
     cache = LFUCache(2)
+
     cache.put(1, 1)
     cache.print2()
+
     cache.put(2, 2)
     cache.print2()
+
     print(cache.get(1))
     cache.print2()
+
     cache.put(3, 3)
     cache.print2()
+
     print(cache.get(2))
     cache.print2()
+
     print(cache.get(3))
     cache.print2()
+
     cache.put(4, 4)
     cache.print2()
+
     print(cache.get(1))
     cache.print2()
+
     print(cache.get(3))
     cache.print2()
+
     print(cache.get(4))
     cache.print2()
