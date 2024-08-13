@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -29,18 +30,14 @@ class BarBookPrototype extends BookPrototype
 {
     protected $category = 'Bar';
 
-    public function __clone()
-    {
-    }
+    public function __clone() {}
 }
 
 class FooBookPrototype extends BookPrototype
 {
     protected $category = 'Foo';
 
-    public function __clone()
-    {
-    }
+    public function __clone() {}
 }
 
 $barPrototype = new BarBookPrototype();

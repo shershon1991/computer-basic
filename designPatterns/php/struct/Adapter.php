@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -47,12 +48,12 @@ interface EBookInterface
 
 class Kindle implements EBookInterface
 {
-    private $page = 1;
+    private $page;
     private $totalPages = 100;
 
     public function unlock()
     {
-        $this->page = 1;
+        $this->page = 2;
     }
 
     public function pressNext()
@@ -95,6 +96,7 @@ $book = new Book();
 $book->open();
 $book->turnPage();
 echo $book->getPage() . PHP_EOL;
+
 $kindle = new Kindle();
 $book = new EBookAdapter($kindle);
 $book->open();
@@ -102,5 +104,5 @@ $book->turnPage();
 echo $book->getPage() . PHP_EOL;
 /*输出
 2
-2
+3
  */
